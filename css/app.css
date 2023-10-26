@@ -24,6 +24,26 @@ ul, ol, li {
     margin-bottom: 80px;
 }
 
-.task > input {
+.new-task > input {
     width: 500px;
+    margin-bottom: 80px;
 }
+
+.task {
+    width: 500px;
+    background-color: lightblue;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 20px;
+    border-bottom: 1px solid grey;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.barred {
+    text-decoration: line-through;
+    font-weight: bold;
+}
+

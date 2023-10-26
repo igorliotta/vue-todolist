@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/app.css">
+    <script src="https://kit.fontawesome.com/aa4f9fed4f.js" crossorigin="anonymous"></script>
     <title>Vue To Do List</title>
 </head>
 <body>
@@ -12,9 +13,29 @@
             <header class="header">
                 <h1>{{ headerTitle }}</h1>
             </header>
-            <div class="task">
-                <input type="text" placeholder="New Task">
-                <button>Aggiungi</button>
+
+            <div class="new-task">
+                <input
+                @keyup.enter="addTask"
+                 v-model="nexTaskText" 
+                 type="text" placeholder="New Task">
+                <button @click="addTask">Aggiungi</button>
+            </div>
+
+            <div class="task-container">
+                <ul>
+                    <li class="task"
+                     :class="todo.done === true ? 'barred' : '' "
+                     v-for="(todo,index) in todos" 
+                     :key="index"
+                     @click="toogleTask(todo)">
+                        {{ todo.text }}
+                        <div>
+                            <i @click.stop="removeTask(index)" class="fa-solid fa-circle-xmark"></i>
+                        </div>
+                    </li>
+                </ul>
+                </div>
             </div>
         
     </div>
